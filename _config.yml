@@ -1,0 +1,133 @@
+# Where things are
+source:       .
+destination:  ./_site
+plugins_dir:  ./_plugins
+layouts_dir:  ./_layouts
+paginate:     8
+
+# Handling Reading
+safe:         false
+include:      [".htaccess"]
+exclude:      []
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+textile_ext:  "textile"
+
+#gems:         ['jekyll-paginate', 'jekyll-lunr-js-search']
+gems:         ['jekyll-paginate']
+
+# Filtering Content
+show_drafts:  null
+limit_posts:  0
+future:       true
+unpublished:  false
+
+# Conversion
+markdown:     kramdown
+highlighter:  rouge
+lsi:          false
+excerpt_separator: "\n\n"
+toc_levels:   1..3 # TOC # 2015/11/29
+
+# Serving
+detach:       false
+port:         4000
+host:         127.0.0.1
+baseurl:      "" # does not include hostname
+
+# Outputting
+permalink:     date
+paginate_path: /page:num
+timezone:      null
+
+#Site config
+title: DeepInsight
+description: DeepInsight's Research Notes
+keywords: Deep Learning
+url: https://deepinsight.github.io
+feed: /atom.xml
+favicon: /images/shortcut.jpg
+
+#Nav config
+nav:
+  - text: HOME
+    url: /index.html
+  - text: CATEGORIES
+    url: /categories.html
+  - text: ARCHIVES
+    url: /archives.html
+  - text: ABOUT ME
+    url: /about.html
+
+#Author config
+author:
+    name: deepinsight
+    imageLink: /images/head.png
+    simpleIntro: Hi world~
+    detailIntro:
+      <p>DeepInsight's Research Notes</p>
+      <p></p>
+
+#You can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
+follow:
+  - class: icon-rss
+    url: /atom.xml
+  - class: icon-weibo
+    url: http://weibo.com/
+  - class: icon-facebook
+    url: https://www.facebook.com/
+  - class: icon-github-alt
+    url: https://github.com/deepinsight/
+  - class: icon-twitter
+    url: https://www.twitter.com/
+
+#Links
+customLinks:
+  - item:
+    - text: EnSharing
+      url: http://ensharing.com/
+    - text: JOSHUA's BLOG
+      url: http://joshua881228.webfactional.com/
+    message: Friends
+  - item:
+    - text: Caffe on github
+      url: https://github.com/BVLC/caffe
+    - text: Deep Learning Tutorials
+      url: http://deeplearning.net/tutorial/
+    - text: Deep Learning Reading List
+      url: http://deeplearning.net/reading-list/
+    message: About Deep Learning
+  - item:
+    - text: 爱可可-爱生活
+      url: http://weibo.com/fly51fly
+    message: Resources
+
+googleAnaly:
+  config: false
+  id: UA-58146229-1
+
+#baidu tongji
+baiduTongji:
+  config: false
+  id: null
+
+#comment config
+disqus:
+  config: false
+  id: null
+
+duoshuo:
+  config: false
+  id: null
+
+#baidu share config
+baiduShare:
+  config: false
+
+# lunr search
+lunr_search:
+  excludes: [rss.xml, atom.xml]
+  stopwords: "stopwords.txt"
+  min_length: 3
+  js_dir: "javascript"
