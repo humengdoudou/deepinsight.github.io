@@ -19,9 +19,10 @@ date: 2017-05-11
 git checkout 63b3fea 可解决这个问题. 但此时分支版本是0.12.(待确认1.1版本)
 
 更新: 1.1版本没问题 - 
-git branch r1.1
-git checkout r1.1
-git pull origin r1.1
+
+git branch r1.1;
+git checkout r1.1;
+git pull origin r1.1;
 
 Tesla M40的capability是5.2, 不用去查了.
 
