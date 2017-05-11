@@ -21,7 +21,9 @@ git checkout 63b3fea 可解决这个问题. 但此时分支版本是0.12.(待确
 更新: 1.1版本没问题 - 
 
 `git branch r1.1`
+
 `git checkout r1.1`
+
 `git pull origin r1.1`
 
 Tesla M40的capability是5.2, 不用去查了.
@@ -33,7 +35,7 @@ configure成功后执行
 
 此处坑略大, 如果你用的是自编译的gcc环境. centos7自带4.8, 我们在/usr/local下重新装了一个gcc4.9, 如果想用自编译的gcc套件, 可以参考以下网址:
 
-https://github.com/bazelbuild/bazel/issues/649#issuecomment-166710509
+[https://github.com/bazelbuild/bazel/issues/649#issuecomment-166710509](https://github.com/bazelbuild/bazel/issues/649#issuecomment-166710509)
 
 [http://biophysics.med.jhmi.edu/~yliu120/tensorflow.html](http://biophysics.med.jhmi.edu/~yliu120/tensorflow.html)
 
