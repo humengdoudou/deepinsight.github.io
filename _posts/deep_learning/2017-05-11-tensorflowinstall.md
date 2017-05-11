@@ -21,6 +21,7 @@ git pull origin r1.1
 
 Tesla M40的capability是5.2, 不用去查了.
 
+
 configure成功后执行 
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 此处坑略大, 如果你用的是自编译的gcc环境. centos7自带4.8, 我们在/usr/local下重新装了一个gcc4.9, 如果想用自编译的gcc套件, 可以参考以下网址:
