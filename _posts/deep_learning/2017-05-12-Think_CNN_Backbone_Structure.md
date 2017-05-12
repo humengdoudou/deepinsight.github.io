@@ -73,7 +73,7 @@ date: 2017-05-12
     - Wide ResNet: 加宽
     - FractalNet: 结构复用，使用Concat
     - ResNeXt: ResNet基础上对Conv(3,3)使用了分组，但是如果Conv(1,1)也分组甚至精度不降
-    - GoogleNet/Inception: 
+    - GoogleNet/Inception: 大量的非对称技巧
     - DenseNet: 大量使用压缩
     - SORT: 一个小trick使用elementwise x*F(x)实现高阶
     - Compact Bilinear: 通过学习矩阵A实现x'Ay实现制造新的特征
