@@ -57,10 +57,10 @@ date: 2017-05-12
     
 - 这个共享结构除了结构性的超参（总深度、总宽度）以外，反复使用了多种技巧，其中包括
 
-    - Residual(直接elementwise加法，实现残差效果)
-    - Concat(特征拼接)
+    - Residual(残差): 直接elementwise加法。
+    - Concat(特征拼接): 直接对特征深度作拼接。
     - Bottleneck(特征压缩): 通过Conv(1,1)对稀疏的或者臃肿的特征进行压缩
-    - Grouping(分组): fc-softmax分类器从1个转差点把分组视为射线，分组改善了这一点
+    - Grouping(分组): fc-softmax分类器从1个观察点把不同类靠空间球心角分离开，不同类放射状散开不符合高斯假设。分组改善了这一点。
     - Fractal(分形模式): 结构复用，可能带来好处
     - High-Order(高阶): 在非分组时，可能带来好处
     - Asymmetric(非对称): Conv(1,3),Conv(1,5),Conv(1,7)属于非对称结构，这个技巧在OCR处理长宽非1:1的字体有用
