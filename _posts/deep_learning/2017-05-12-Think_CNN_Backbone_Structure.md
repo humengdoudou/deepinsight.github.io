@@ -128,6 +128,9 @@ Mask-RCNN标配ResNeXt101 Backbone，我一点都不意外。
 ## DeepInsight团队欢迎您来优化CNN Backbone
 
 
+https://github.com/deepinsight/examples/tree/master/imagenet/main\_next.py
+
+
 - 基于个人品位，使用ResNeXt+WideResNet+SORT，强力备选方案是DenseNet修改版。
 - 大量超参可调整。
 - CIFAR100 top1 acc: 84.2%，可再现。
