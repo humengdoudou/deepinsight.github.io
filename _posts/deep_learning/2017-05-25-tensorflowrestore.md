@@ -1,13 +1,13 @@
 ---
 layout: post
 category: deep_learning, tensorflow
-title: Tensorflow如果用pretrained模型参数同时初始化一个网络的两个分支
+title: Tensorflow如何用pretrained模型参数同时初始化一个网络的两个分支
 date: 2017-05-25
 ---
 
-How to use tensorflow pretrained model to initialize two same models under different variable scopes.
+How to use tensorflow pretrained model to initialize two same sub-networks under different variable scopes.
 
-在某些情况下，我们会需要在网络中构建两个相同的分支, 这两个分支结构完全相同, 但是参数不共享. 例如 2(4)* *Spatial Transformer Networks*. 同时需要用一个预训练好的模型参数来初始化这两个网络.
+在某些情况下，我们会需要在网络中构建两个相同的分支, 这两个分支结构完全相同, 但是参数不共享. 例如在 2(4)* *Spatial Transformer Networks*. 同时需要用一个预训练好的模型参数来初始化这两个网络.
 
 
 
