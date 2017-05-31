@@ -58,53 +58,92 @@ date: 2017-05-12
 
 #### 经典元方法1：仿射变换实现注意力、Colocalization
 
-- Spatial Transformer Networks
+- Spatial Transformer Networks[https://arxiv.org/pdf/1506.02025.pdf](https://arxiv.org/pdf/1506.02025.pdf)
+
+全文重点在于提出学习仿射变换参数，能解决一大类问题。
+
+**The transformation is then performed on the entire feature map (non-locally) and
+can include scaling, cropping, rotations, as well as non-rigid deformations.**
+
 
 #### 经典元方法2：Attention
 
-- Residual Attention Network[]()
-- Not All Pixels Are Equal: Difficulty Aware[]()
-- Attention to Scale: Scale-aware Semantic Image Segmentation[]()
+- Residual Attention Network[https://arxiv.org/pdf/1704.06904.pdf](https://arxiv.org/pdf/1704.06904.pdf)
+- Not All Pixels Are Equal: Difficulty Aware[https://arxiv.org/pdf/1704.01344.pdf](https://arxiv.org/pdf/1704.01344.pdf)
+- Attention to Scale: Scale-aware Semantic Image Segmentation[https://arxiv.org/pdf/1511.03339.pdf](https://arxiv.org/pdf/1511.03339.pdf)
 
 
-#### 树形分割, 先是SIFT, 后还有Image Captioning(看图说话功能)
+#### 树形分割套路，2017年4月中山大学VOC2012刷榜之作
 
-- Learning Hierarchical Features for Scene Labeling[]()
-- Deep Structured Scene Parsing by Learning with Image Descriptions[]()
+继承了先人LeCun在SIFT玩儿这套, 发展了Image Captioning(看图说话)功能
+
+- Learning Hierarchical Features for Scene Labeling[http://yann.lecun.com/exdb/publis/pdf/farabet-pami-13.pdf](http://yann.lecun.com/exdb/publis/pdf/farabet-pami-13.pdf)
+- Deep Structured Scene Parsing by Learning with Image Descriptions[https://arxiv.org/pdf/1604.02271.pdf](https://arxiv.org/pdf/1604.02271.pdf)
 
 
-#### OD系列, 最后两组OD大神合流于OD/Seg联合训练任务
-- Rich Feature[]()
-- Regional CNN[]()
-- Fast-RCNN[]()
-- Faster-RCNN[]()
-- Mask-RCNN[]()
+#### OD系列关键论文
+
+最后两组OD大神合流于OD/Seg联合训练任务。
+
+联合训练会导致多出来的超参，这一点个人不是很喜欢，智者见智了。
+
+
+- Rich Feature[https://arxiv.org/pdf/1311.2524.pdf](https://arxiv.org/pdf/1311.2524.pdf)
+- Fast-RCNN[https://arxiv.org/pdf/1504.08083.pdf](https://arxiv.org/pdf/1504.08083.pdf)
+- Faster-RCNN[https://arxiv.org/pdf/1506.01497.pdf](https://arxiv.org/pdf/1506.01497.pdf)
+- You Only Look Once[https://arxiv.org/pdf/1506.02640.pdf](https://arxiv.org/pdf/1506.02640.pdf)
+- Single Shot Multibox Detector[https://arxiv.org/pdf/1512.02325.pdf](https://arxiv.org/pdf/1512.02325.pdf)
+- Mask-RCNN[https://arxiv.org/pdf/1703.06870.pdf](https://arxiv.org/pdf/1703.06870.pdf)
 
 
 #### Seg系列重磅
 
-- Fully Convolutional Networks for Semantic Segmentation[]()
-- SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation[]()
-- Learning Deconvolution Network for Semantic Segmentation[]()
-- Stacked Hourglass Networks for Human Pose Estimation[]()
-- DeepLab
+我们要知道每一个像素点都属于哪个分类，传统的老板们习惯性地加CRF的方案（非端到端训练，有时成为post-hoc），这时，FCN出现了。
 
+- Fully Convolutional Networks for Semantic Segmentation[https://arxiv.org/pdf/1411.4038.pdf](https://arxiv.org/pdf/1411.4038.pdf)
+
+FCN里核心几句话在第三段：
+- 3.1 改造：**Adapting classifiers for dense prediction**
+- 3.2 不同尺度拼接： **Shift-and-stitch is filter rarefaction**
+- 3.3 上采样就是非整数阶卷积，也就是带参数的二线性插值：**Upsampling is backwards strided convolution**
+- 3.4 数据预处理：**Patchwise training is loss sampling**
+
+另一类起到同样作用的方法是Dilated Conv（Atrous，带孔洞的卷积），这两者是可比较的。而且后者炫酷之处在于规避了对feature map的concat操作。至今我唯一认可的大量使用concat操作的网络结构是DenseNet.
+
+那么根据这个Atrous我们不得不看的是Deeplab.
+
+- DeepLab[https://arxiv.org/pdf/1606.00915.pdf](https://arxiv.org/pdf/1606.00915.pdf)
+
+其他：
+
+- SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation[https://arxiv.org/pdf/1511.00561.pdf](https://arxiv.org/pdf/1511.00561.pdf)
+- Learning Deconvolution Network for Semantic Segmentation[https://arxiv.org/pdf/1505.04366.pdf](https://arxiv.org/pdf/1505.04366.pdf)
+- Stacked Hourglass Networks for Human Pose Estimation[https://arxiv.org/pdf/1603.06937.pdf](https://arxiv.org/pdf/1603.06937.pdf)
+
+
+动作检测其实这个问题可以把它视作为Semantic Seg的子命题，就好像Finegrained任务是Classification任务的子命题那样。一个解决好了，另外一个自然不错。
 
 
 #### Seg结构最新动向
 
-- PSPNet: Pyramid Scene Parsing Network[]()
-- Wider or Deeper: []()
-- FlowNet 2.0 []()
-- RefineNet []()
-- WildCat []()
+- PSPNet: Pyramid Scene Parsing Network[https://arxiv.org/pdf/1612.01105.pdf](https://arxiv.org/pdf/1612.01105.pdf)
 
+商汤的重磅，仍然依赖concat.
+
+- Wider or Deeper: [https://arxiv.org/pdf/1611.10080.pdf](https://arxiv.org/pdf/1611.10080.pdf)
+
+这篇的工作横向比较极为扎实，更像是比较Backbone Network.
+
+- RefineNet [https://arxiv.org/pdf/1611.06612.pdf](https://arxiv.org/pdf/1611.06612.pdf)
+
+VOC2012榜单前五的工作。
 
 
 ### 如何提出问题，提出什么问题：问传感器去
 
+
 - 视频拍摄：在时间轴上对单一物体的跟踪与重建的基础数据
-- 多目摄像头：双眼对同一场景的同步跟踪
+- 多目摄像头：双眼对同一场景相同角度、不同角度的同步跟踪
 - 深度相机：在RGB信息上提供D的信息
 - 动作捕捉：位置姿态识别
 - 雷达点云：使用RADAR/LIDAR实现三维重建
@@ -112,5 +151,9 @@ date: 2017-05-12
 
 ### 写在最后
 
-结构只是一个点而已，损失函数和训练技巧我们回头聊。
+为各种问题提出的结构只是一个点而已，损失函数和训练技巧我们回头聊。
+
+以及，如果你打开论文看了的话，就会对中国人做AI的水平燃起一些希望。华人很多工作很扎实，然而洋人比较喜欢鼓吹灵性、灵感一类的。因此，还是要学习一个扎实的数学和物理知识。论文里面有大量的矩阵计算，想要快速恶补一下的话，我强烈推荐：
+
+- Matrix Cookbook[http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf](http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf)
 
